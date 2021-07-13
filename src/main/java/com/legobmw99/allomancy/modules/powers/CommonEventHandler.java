@@ -27,6 +27,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
@@ -162,16 +164,22 @@ public class CommonEventHandler {
             ServerPlayerEntity source = (ServerPlayerEntity) event.getSource().getEntity();
             source.getCapability(AllomancerCapability.PLAYER_CAP).ifPresent(data -> {
 
+                /*
+
+                 CHANGED INSTAKILL TO HUGE DAMAGE
+
+                 */
                 if (data.isBurning(Metal.PEWTER)) {
                     if (data.isEnhanced()) {
                         if (source.getMainHandItem().getItem() instanceof KolossBladeItem) {
-                            event.setAmount(550); // Duralumin OHK with Koloss blade
+                            event.setAmount(event.getAmount() * 3.5f); // Duralumin OHK with Koloss blade
                             PowerUtils.wipePlayer(source);
+
                         } else {
-                            event.setAmount(event.getAmount() * 3);
+                            event.setAmount(event.getAmount() * 2.25f);
                         }
                     } else {
-                        event.setAmount(event.getAmount() + 2);
+                        event.setAmount(event.getAmount() + 3);
                     }
                 }
 
@@ -263,22 +271,33 @@ public class CommonEventHandler {
                                 spawnLoc = data.getSpawnLoc();
                             } else {
                                 spawnDim = World.OVERWORLD; // no spawn --> use world spawn
-                                spawnLoc = new BlockPos(curPlayer.level.getLevelData().getXSpawn(), curPlayer.level.getLevelData().getYSpawn(),
+                                spawnLoc = new BlockPos(curPlayer.level.getLevelData().getXSpawn(),
+                                                        curPlayer.level.getLevelData().getYSpawn(),
                                                         curPlayer.level.getLevelData().getZSpawn());
-
                             }
 
-                            PowerUtils.teleport(curPlayer, event.world, spawnDim, spawnLoc);
+                            if (!curPlayer.level.dimension().equals(spawnDim)){
+                                ITextComponent m = new StringTextComponent("[" + curPlayer.getScoreboardName() + "] Ha gastado metales por diversion.");
+                                curPlayer.sendMessage(m, curPlayer.getUUID());
+                            } else {
+                                PowerUtils.teleport(curPlayer, event.world, spawnDim, spawnLoc);
+                            }
+
                             if (data.isBurning(Metal.DURALUMIN)) {
                                 data.drainMetals(Metal.DURALUMIN);
                             }
-                            data.drainMetals(Metal.ELECTRUM);
 
+                            data.drainMetals(Metal.ELECTRUM);
 
                         } else if (data.isEnhanced() && data.isBurning(Metal.GOLD) && data.getAmount(Metal.GOLD) >= 9) { // These should be mutually exclusive
                             RegistryKey<World> deathDim = data.getDeathDim();
                             if (deathDim != null) {
-                                PowerUtils.teleport(curPlayer, event.world, deathDim, data.getDeathLoc());
+                                if (!curPlayer.level.dimension().equals(deathDim)){
+                                    ITextComponent m = new StringTextComponent("[" + curPlayer.getScoreboardName() + "] Ha intentado teletransportarse entre dimensiones, pero no lo ha conseguido.");
+                                    curPlayer.sendMessage(m, curPlayer.getUUID());
+                                } else {
+                                    PowerUtils.teleport(curPlayer, event.world, deathDim, data.getDeathLoc());
+                                }
                                 if (data.isBurning(Metal.DURALUMIN)) {
                                     data.drainMetals(Metal.DURALUMIN);
                                 }

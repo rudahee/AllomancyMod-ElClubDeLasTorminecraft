@@ -35,10 +35,6 @@ public class LerasiumItem extends Item {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack itemStackIn = player.getItemInHand(hand);
-        if (player.getCapability(AllomancerCapability.PLAYER_CAP).filter(data -> !data.isMistborn()).isPresent()) {
-            player.startUsingItem(hand);
-            return new ActionResult<>(ActionResultType.SUCCESS, itemStackIn);
-        }
 
         return new ActionResult<>(ActionResultType.FAIL, itemStackIn);
 

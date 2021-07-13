@@ -3,10 +3,7 @@ package com.legobmw99.allomancy.modules.combat;
 import com.legobmw99.allomancy.Allomancy;
 import com.legobmw99.allomancy.modules.combat.client.CombatClientSetup;
 import com.legobmw99.allomancy.modules.combat.entity.ProjectileNuggetEntity;
-import com.legobmw99.allomancy.modules.combat.item.CoinBagItem;
-import com.legobmw99.allomancy.modules.combat.item.KolossBladeItem;
-import com.legobmw99.allomancy.modules.combat.item.MistcloakItem;
-import com.legobmw99.allomancy.modules.combat.item.ObsidianDaggerItem;
+import com.legobmw99.allomancy.modules.combat.item.*;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -27,6 +24,7 @@ public class CombatSetup {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Allomancy.MODID);
     public static final RegistryObject<CoinBagItem> COIN_BAG = ITEMS.register("coin_bag", CoinBagItem::new);
     public static final RegistryObject<ObsidianDaggerItem> OBSIDIAN_DAGGER = ITEMS.register("obsidian_dagger", ObsidianDaggerItem::new);
+    public static final RegistryObject<GlassDaggerItem> GLASS_DAGGER = ITEMS.register("glass_dagger", GlassDaggerItem::new);
     public static final RegistryObject<KolossBladeItem> KOLOSS_BLADE = ITEMS.register("koloss_blade", KolossBladeItem::new);
     public static final RegistryObject<EntityType<ProjectileNuggetEntity>> NUGGET_PROJECTILE = ENTITIES.register("nugget_projectile",
                                                                                                                  () -> EntityType.Builder.<ProjectileNuggetEntity>of(

@@ -1,13 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:nether_star"
-    },
-    {
-      "tag": "forge:storage_blocks/gold"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D#",
+    "DND",
+    "#D#"
   ],
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
   "result": {
     "item": "allomancy:lerasium_nugget"
   }
