@@ -2,5 +2,11 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "allomancy:item/obsidian_dagger"
+  },
+  "display": {
+    "head": {
+      "rotation": [0, 0, -52],
+      "translation": [-7.25, 4.25, 0]
+    }
   }
 }

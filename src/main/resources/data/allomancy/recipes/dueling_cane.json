@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  E",
+    " s ",
+    "s  "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "tag": "minecraft:emerald_block"
+    }
+  },
+  "result": {
+    "item": "allomancy:dueling_cane"
+  }
+}

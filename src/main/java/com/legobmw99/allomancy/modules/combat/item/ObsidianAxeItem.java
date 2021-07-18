@@ -9,15 +9,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.crafting.Ingredient;
 
-public class GlassDaggerItem extends SwordItem {
+public class ObsidianAxeItem extends SwordItem {
 
-    private static final int ATTACK_DAMAGE = 5;
-    private static final float ATTACK_SPEED = 1F;
+    private static final int ATTACK_DAMAGE = 11;
+    private static final float ATTACK_SPEED = -3F;
 
     private static final IItemTier tier = new IItemTier() {
         @Override
         public int getUses() {
-            return 16;
+            return 64;
         }
 
         @Override
@@ -46,7 +46,7 @@ public class GlassDaggerItem extends SwordItem {
         }
     };
 
-    public GlassDaggerItem() {
+    public ObsidianAxeItem() {
         super(tier, ATTACK_DAMAGE, ATTACK_SPEED, new Properties().tab(ItemGroup.TAB_COMBAT));
     }
 

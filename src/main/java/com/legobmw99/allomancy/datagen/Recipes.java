@@ -7,6 +7,7 @@ import com.legobmw99.allomancy.modules.extras.ExtrasSetup;
 import com.legobmw99.allomancy.modules.materials.MaterialsSetup;
 import com.legobmw99.allomancy.api.enums.Metal;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -37,6 +38,7 @@ public class Recipes extends RecipeProvider {
         add('W', Items.GRAY_WOOL);
         add('O', Tags.Items.OBSIDIAN);
         add('C', Items.COBBLESTONE);
+        add('E', Tags.Items.STORAGE_BLOCKS_EMERALD);
 
     }
 
@@ -127,6 +129,10 @@ public class Recipes extends RecipeProvider {
         buildShaped(consumer, ConsumeSetup.VIAL.get(), 4, Items.GLASS, " S ", "G G", " G ");
         buildShaped(consumer, CombatSetup.MISTCLOAK.get(), ConsumeSetup.VIAL.get(), "W W", "WWW", "WWW");
         buildShaped(consumer, CombatSetup.OBSIDIAN_DAGGER.get(), CombatSetup.MISTCLOAK.get(), "  O", " O ", "s  ");
+        buildShaped(consumer, CombatSetup.GLASS_DAGGER.get(), CombatSetup.MISTCLOAK.get(), "  G", " G ", "s  ");
+        buildShaped(consumer, CombatSetup.OBSIDIAN_AXE.get(), CombatSetup.MISTCLOAK.get(), "OOO", " sO", " s ");
+        buildShaped(consumer, CombatSetup.DUELING_CANE.get(), CombatSetup.MISTCLOAK.get(), "s  ", " s ", "  E");
+
         buildShaped(consumer, CombatSetup.KOLOSS_BLADE.get(), ConsumeSetup.LERASIUM_NUGGET.get(), "CC", "CC", "sC");
 
         // Ore Recipes

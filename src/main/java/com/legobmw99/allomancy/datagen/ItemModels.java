@@ -27,6 +27,8 @@ public class ItemModels extends ItemModelProvider {
         itemGenerated(CombatSetup.COIN_BAG.get(), "item/coin_bag");
         itemHandheld(CombatSetup.OBSIDIAN_DAGGER.get(), "item/obsidian_dagger");
         itemHandheld(CombatSetup.GLASS_DAGGER.get(), "item/glass_dagger");
+        itemHandheld(CombatSetup.OBSIDIAN_AXE.get(), "item/obsidian_axe");
+        itemHandheld(CombatSetup.DUELING_CANE.get(), "item/dueling_cane");
         largeItemHandheld(CombatSetup.KOLOSS_BLADE.get(), "item/koloss_blade");
 
         itemGenerated(ConsumeSetup.ALLOMANTIC_GRINDER.get(), "item/allomantic_grinder");

@@ -25,6 +25,8 @@ public class CombatSetup {
     public static final RegistryObject<CoinBagItem> COIN_BAG = ITEMS.register("coin_bag", CoinBagItem::new);
     public static final RegistryObject<ObsidianDaggerItem> OBSIDIAN_DAGGER = ITEMS.register("obsidian_dagger", ObsidianDaggerItem::new);
     public static final RegistryObject<GlassDaggerItem> GLASS_DAGGER = ITEMS.register("glass_dagger", GlassDaggerItem::new);
+    public static final RegistryObject<ObsidianAxeItem> OBSIDIAN_AXE = ITEMS.register("obsidian_axe", ObsidianAxeItem::new);
+    public static final RegistryObject<DuelingCaneItem> DUELING_CANE = ITEMS.register("dueling_cane", DuelingCaneItem::new);
     public static final RegistryObject<KolossBladeItem> KOLOSS_BLADE = ITEMS.register("koloss_blade", KolossBladeItem::new);
     public static final RegistryObject<EntityType<ProjectileNuggetEntity>> NUGGET_PROJECTILE = ENTITIES.register("nugget_projectile",
                                                                                                                  () -> EntityType.Builder.<ProjectileNuggetEntity>of(

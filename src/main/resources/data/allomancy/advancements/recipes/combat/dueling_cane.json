@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "allomancy:dueling_cane"
+    ]
+  },
+  "criteria": {
+    "has_mistcloak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "allomancy:mistcloak"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "allomancy:dueling_cane"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mistcloak",
+      "has_the_recipe"
+    ]
+  ]
+}

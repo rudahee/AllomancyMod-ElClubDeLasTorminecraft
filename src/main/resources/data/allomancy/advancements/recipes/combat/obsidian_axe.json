@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "allomancy:obsidian_axe"
+    ]
+  },
+  "criteria": {
+    "has_mistcloak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "allomancy:mistcloak"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "allomancy:obsidian_axe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mistcloak",
+      "has_the_recipe"
+    ]
+  ]
+}
