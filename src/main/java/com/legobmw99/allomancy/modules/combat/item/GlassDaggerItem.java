@@ -69,7 +69,7 @@ public class GlassDaggerItem extends SwordItem {
 
     @Override
     public float getXpRepairRatio(ItemStack stack) {
-        return 0.1f;
+        return 1f;
     }
 
 }
